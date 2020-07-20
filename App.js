@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View style={[styles.container, styles.bgColor]}>
       <StatusBar style="inverted" />
-      <StartScreen />
+      <Settings />
     </View>
   );
 }

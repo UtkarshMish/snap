@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
 import colors from '../../config/colors';
 export default function SettingBox({ children, toggleSwitch, isEnabled, bgColor }) {
-  bgColor = bgColor.color == "aliceblue" ? bgColor : null;
+  bgColor = bgColor && bgColor.color == "aliceblue" ? bgColor : null;
   return (
     <View style={[styles.sideContent, styles.itemBorder]}>
       <Text style={[styles.text, bgColor]}>{children}</Text>
