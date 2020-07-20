@@ -1,6 +1,14 @@
 import * as React from "react";
-import { Switch, View, StyleSheet, Text, SafeAreaView } from "react-native";
+import {
+  Switch,
+  View,
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  Platform,
+} from "react-native";
 import colors from "../config/colors";
+import SettingBox from "./Components/SettingBox";
 
 export default function Settings() {
   const [isEnabled, setIsEnabled] = React.useState(false);
@@ -22,19 +30,13 @@ export default function Settings() {
       <View style={styles.sideContent}>
         <Text style={[styles.mainTitle, styles.bgColor]}>User Settings</Text>
       </View>
-      <View style={[styles.sideContent, styles.itemBorder]}>
-        <Text style={[styles.text, styles.bgColor]}>Background Color</Text>
-        <Text style={[styles.textInfo, styles.bgColor]}>
-          {isEnabled ? "Black" : "White"}
-        </Text>
-        <Switch
-          trackColor={{ false: colors.trackFalse, true: colors.trackTrue }}
-          thumbColor={isEnabled ? colors.switchTrue : colors.switchFalse}
-          ios_backgroundColor="#3e3e3e"
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
-      </View>
+      <SettingBox
+        toggleSwitch={toggleSwitch}
+        isEnabled={isEnabled}
+        bgColor={styles.bgColor}
+      >
+        Background Color
+      </SettingBox>
     </SafeAreaView>
   );
 }
@@ -53,13 +55,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     padding: 20,
   },
-  itemBorder: {
-    borderWidth: 1.5,
-    borderColor: colors.borderColor,
-    borderRadius: 10,
-  },
   mainTitle: {
     flex: 1,
+    fontFamily: Platform.OS == "android" ? "Roboto" : "Avenir",
     fontSize: 55,
     fontWeight: "700",
     textAlign: "center",
