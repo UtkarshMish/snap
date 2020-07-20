@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Switch } from 'react-native';
-import colors from '../../config/colors';
+import { View, Text, Switch } from 'react-native';
+import colors from '../../../config/colors';
+import styles from "../SettingBox/styles";
+
 export default function SettingBox({ children, toggleSwitch, isEnabled, bgColor }) {
   bgColor = bgColor && bgColor.color == "aliceblue" ? bgColor : null;
   return (
@@ -19,26 +21,3 @@ export default function SettingBox({ children, toggleSwitch, isEnabled, bgColor 
     </View>
   );
 };
-const styles = StyleSheet.create({
-
-  sideContent: {
-    flexDirection: "row",
-    width: "auto",
-    justifyContent: "space-between",
-    padding: 20,
-  },
-  itemBorder: {
-    borderBottomWidth: 1.5,
-    borderBottomColor: colors.borderColor,
-    borderRadius: 10,
-    elevation: 100,
-  },
-  text: {
-    fontSize: 20,
-  },
-  textInfo: {
-    fontStyle: "italic",
-    fontSize: 18,
-    includeFontPadding: true,
-  },
-});
