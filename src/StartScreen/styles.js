@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import colors from "../../config/colors";
 
@@ -17,10 +17,10 @@ export default styles = StyleSheet.create({
     width: "100%",
   },
   sideContent: {
-    flex: 0.85,
-    position: "relative",
-    top: "30%",
+    flex: 0.75,
+    top: 80,
     flexDirection: "column",
+    marginBottom: 10
   },
 
   titleText: {
@@ -40,7 +40,9 @@ export default styles = StyleSheet.create({
     padding: 15,
   },
   buttonContainer: {
-    flex: 0.15,
+    flex: 0.25,
+    bottom: 5,
+    justifyContent: "center"
   },
   buttonTrue: {
     color: "red",

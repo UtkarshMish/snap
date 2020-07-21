@@ -6,22 +6,21 @@ export default styles = StyleSheet.create({
   button: {
     flex: 1,
     shadowColor: colors.secondary,
-    shadowOffset: { height: -10, width: 20 },
-    shadowRadius: 100,
-    elevation: 10,
+    borderRadius: 10,
+    padding: 5,
+    marginBottom: 5,
+    alignItems: "center",
+    justifyContent: "space-around"
+
   },
   textFailure: {
     backgroundColor: colors.failure,
   },
   text: {
     textTransform: "capitalize",
-    borderColor: "black",
-    borderWidth: 2,
     textAlign: "center",
     color: colors.fontColor,
     fontSize: 30,
-    padding: 10,
-    borderRadius: 10,
   },
   textSuccess: {
     backgroundColor: colors.success,

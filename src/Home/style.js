@@ -16,6 +16,7 @@ export default styles = StyleSheet.create({
     flexDirection: "row-reverse",
     shadowColor: "red",
     elevation: 1,
+    alignItems: "flex-start"
   },
   backgroundImage: {
     flex: 0.75,
