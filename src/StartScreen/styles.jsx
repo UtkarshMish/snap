@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import React from "react";
+import { StyleSheet, Dimensions } from "react-native";
 
 import colors from "../../config/colors";
 
@@ -10,17 +10,16 @@ export default styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "cover",
-
   },
   mainContainer: {
     flex: 1,
     width: "100%",
   },
   sideContent: {
-    flex: 0.80,
+    flex: 0.8,
     top: 80,
     flexDirection: "column",
-    marginBottom: 10
+    marginBottom: 10,
   },
 
   titleText: {
@@ -40,16 +39,16 @@ export default styles = StyleSheet.create({
     padding: 5,
   },
   buttonContainer: {
-    flex: 0.20,
-    bottom: 5,
+    flex: 0.2,
+    bottom: "10%",
     padding: 10,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   buttonTrue: {
     color: "red",
-    backgroundColor: colors.switchTrue
+    backgroundColor: colors.switchTrue,
   },
   buttonFalse: {
-    backgroundColor: colors.switchFalse
-  }
+    backgroundColor: colors.switchFalse,
+  },
 });
