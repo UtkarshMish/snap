@@ -37,4 +37,11 @@ export default styles = StyleSheet.create({
     flex: 0.4,
     paddingBottom: 10,
   },
+  errorMessage: {
+    fontSize: 16,
+    color: colors.failure,
+    fontWeight: "600",
+    textAlign: "center",
+    marginBottom: 5,
+  },
 });

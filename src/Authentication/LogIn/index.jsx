@@ -5,6 +5,12 @@ import styles from "./styles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
 import { Formik } from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  username: Yup.string().required().email().max(25).label("Username"),
+  password: Yup.string().required().min(5).label("Password"),
+});
 
 const LogIn = () => {
   const handleLogin = ({ username, password }) => {
@@ -21,8 +27,9 @@ const LogIn = () => {
         <Formik
           initialValues={{ username: "", password: "" }}
           onSubmit={handleLogin}
+          validationSchema={validationSchema}
         >
-          {({ handleSubmit, handleChange }) => (
+          {({ handleSubmit, handleChange, errors }) => (
             <>
               <TextInput
                 clearButtonMode="always"
@@ -35,6 +42,7 @@ const LogIn = () => {
                 autoCorrect={false}
                 autoFocus={true}
               />
+              <Text style={styles.errorMessage}>{errors.username}</Text>
               <TextInput
                 clearButtonMode="always"
                 secureTextEntry={true}
@@ -42,8 +50,9 @@ const LogIn = () => {
                 onChangeText={handleChange("password")}
                 style={styles.textStyle}
                 autoCorrect={false}
-                placeholder="password"
+                placeholder="Password"
               />
+              <Text style={styles.errorMessage}>{errors.password}</Text>
               <View style={styles.buttonContainer}>
                 <UtilityButton onPress={handleSubmit}>Login</UtilityButton>
                 <UtilityButton color={colors.switchTrue}>

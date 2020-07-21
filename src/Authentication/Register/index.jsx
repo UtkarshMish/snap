@@ -4,6 +4,14 @@ import styles from "./styles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
 import { Formik } from "formik";
+import * as Yup from "yup";
+const validationSchema = Yup.object({
+  name: Yup.string().min(2).required().label("Name"),
+  phone: Yup.number().min(10).max(10).required().label("Mobile Number"),
+  email: Yup.string().email().required().max(25).label("Username"),
+  password: Yup.string().required().min(5).label("Password"),
+  confirmPassword: Yup.string().required().min(5).label("Confirmed Password"),
+});
 const Register = () => {
   const handleRegister = ({
     name,
@@ -29,8 +37,9 @@ const Register = () => {
             confirmPassword: "",
           }}
           onSubmit={handleRegister}
+          validationSchema={validationSchema}
         >
-          {({ handleChange, handleSubmit }) => (
+          {({ handleChange, handleSubmit, errors }) => (
             <>
               <TextInput
                 clearButtonMode="always"
@@ -43,6 +52,7 @@ const Register = () => {
                 autoCorrect={false}
                 autoFocus={true}
               />
+              <Text style={styles.error}>{errors.name}</Text>
               <TextInput
                 clearButtonMode="always"
                 textContentType="telephoneNumber"
@@ -53,6 +63,7 @@ const Register = () => {
                 autoCapitalize="none"
                 autoCorrect={false}
               />
+              <Text style={styles.error}>{errors.phone}</Text>
               <TextInput
                 clearButtonMode="always"
                 textContentType="emailAddress"
@@ -63,6 +74,7 @@ const Register = () => {
                 autoCapitalize="none"
                 autoCorrect={false}
               />
+              <Text style={styles.error}>{errors.email}</Text>
               <TextInput
                 clearButtonMode="always"
                 secureTextEntry={true}
@@ -72,6 +84,7 @@ const Register = () => {
                 autoCorrect={false}
                 placeholder="Password"
               />
+              <Text style={styles.error}>{errors.password}</Text>
               <TextInput
                 clearButtonMode="always"
                 secureTextEntry={true}
@@ -81,6 +94,7 @@ const Register = () => {
                 autoCorrect={false}
                 placeholder="Confirm Password"
               />
+              <Text style={styles.error}>{errors.confirmPassword}</Text>
               <View style={styles.buttonContainer}>
                 <UtilityButton color={colors.switchTrue} onPress={handleSubmit}>
                   Sign Up

@@ -38,4 +38,11 @@ export default styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
   },
+  error: {
+    color: colors.failure,
+    fontWeight: "600",
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 5,
+  },
 });
