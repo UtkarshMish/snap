@@ -12,7 +12,7 @@ export default styles = StyleSheet.create({
 
   buttonContainers: {
     flex: 0.25,
-    top: "10%",
+    top: 30,
     flexDirection: "row-reverse",
     shadowColor: "red",
     elevation: 1,

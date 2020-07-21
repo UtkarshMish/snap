@@ -20,7 +20,7 @@ export default styles = StyleSheet.create({
     textTransform: "capitalize",
     textAlign: "center",
     color: colors.fontColor,
-    fontSize: 30,
+    fontSize: 20,
   },
   textSuccess: {
     backgroundColor: colors.success,

@@ -17,7 +17,7 @@ export default styles = StyleSheet.create({
     width: "100%",
   },
   sideContent: {
-    flex: 0.75,
+    flex: 0.80,
     top: 80,
     flexDirection: "column",
     marginBottom: 10
@@ -37,11 +37,12 @@ export default styles = StyleSheet.create({
     fontWeight: "700",
     alignItems: "center",
     justifyContent: "center",
-    padding: 15,
+    padding: 5,
   },
   buttonContainer: {
-    flex: 0.25,
+    flex: 0.20,
     bottom: 5,
+    padding: 10,
     justifyContent: "center"
   },
   buttonTrue: {
