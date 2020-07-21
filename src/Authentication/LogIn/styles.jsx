@@ -5,28 +5,36 @@ import colors from "../../../config/colors";
 export default styles = StyleSheet.create({
   container: {
     flex: 1,
-    top: "20%",
+    top: "3%",
     width: "100%",
     height: "100%",
-    marginTop: 30,
+    margin: "auto",
     paddingLeft: "10%",
     paddingRight: "10%",
   },
+  mainTitle: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: 55,
+    fontWeight: "900",
+    marginBottom: 20,
+  },
   inputContainer: {
     flex: 1,
+    marginTop: 20,
+    marginBottom: 20,
   },
   textStyle: {
     textAlign: "center",
     borderWidth: 1,
     borderColor: colors.trackTrue,
     borderRadius: 15,
-    marginBottom: 20,
-    fontSize: 24,
+    marginBottom: 10,
+    fontSize: 20,
     padding: 10,
   },
   buttonContainer: {
-    flex: 1,
-    marginTop: 10,
-    justifyContent: "center",
+    flex: 0.4,
+    paddingBottom: 10,
   },
 });

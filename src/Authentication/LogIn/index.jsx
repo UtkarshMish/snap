@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { View, ScrollView, TextInput, Alert } from "react-native";
+import { View, ScrollView, Text, TextInput, Alert } from "react-native";
 import styles from "./styles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
-import style from "../../Home/style";
+
 const LogIn = () => {
   const handleLogin = () => {
     Alert.alert(
@@ -17,6 +17,7 @@ const LogIn = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.inputContainer}>
+        <Text style={styles.mainTitle}>LOG IN</Text>
         <TextInput
           clearButtonMode="always"
           textContentType="emailAddress"
@@ -24,13 +25,14 @@ const LogIn = () => {
           style={styles.textStyle}
           onChangeText={(username) => setUsername(username)}
           placeholder="Username"
+          autoCapitalize="none"
+          autoCorrect={false}
+          autoFocus={true}
         />
         <TextInput
           clearButtonMode="always"
           secureTextEntry={true}
-          textContentType={"password"}
-          underlineColorAndroid={"transparent"}
-          keyboardType={"visible-password"}
+          textContentType="password"
           onChangeText={(password) => setPassword(password)}
           style={styles.textStyle}
           autoCorrect={false}
