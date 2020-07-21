@@ -10,13 +10,14 @@ export default styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "cover",
+
   },
   mainContainer: {
     flex: 1,
     width: "100%",
   },
   sideContent: {
-    flex: 1,
+    flex: 0.85,
     position: "relative",
     top: "30%",
     flexDirection: "column",
@@ -39,7 +40,7 @@ export default styles = StyleSheet.create({
     padding: 15,
   },
   buttonContainer: {
-    margin: 5,
+    flex: 0.15,
   },
   buttonTrue: {
     color: "red",

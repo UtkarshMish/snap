@@ -10,7 +10,7 @@ export default function Home() {
     <SafeAreaView style={styles.container}>
       <View style={styles.buttonContainers}>
         <UtilityButton>next</UtilityButton>
-        <UtilityButton userType="failure">previous</UtilityButton>
+        <UtilityButton failButton={true}>previous</UtilityButton>
       </View>
       <Image source={bgImage} style={styles.backgroundImage} />
     </SafeAreaView>

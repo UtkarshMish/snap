@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
 import styles from "./styles";
-export default function UtilityButton({ children, userType = "success" }) {
-  const textStyle = userType == "failure" ? styles.textFailure : styles.textSuccess;
+export default function UtilityButton({ children, failButton, onPress }) {
+  const textStyle = failButton == true ? styles.textFailure : styles.textSuccess;
   return (
-    <View style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={[textStyle, styles.text]}> {children} </Text>
-    </View>
+    </TouchableOpacity>
   );
 };

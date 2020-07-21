@@ -4,24 +4,31 @@ import {
   View,
   Text,
   SafeAreaView,
-  Image,
   BackHandler,
   Alert,
+  ImageBackground,
 } from "react-native";
 
 import styles from "./styles";
-const bgImage = require("../../assets/bg-red-wall.jpg");
+import UtilityButton from "../Components/Buttons";
+const bgImage = require("../../assets/HomeScreen.gif");
 export default function StartScreen() {
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={bgImage} style={styles.backgroundImage} />
+      <ImageBackground
+        source={bgImage}
+        blurRadius={100}
+        style={styles.backgroundImage}
+      />
       <View style={styles.sideContent}>
         <Text style={styles.titleText}>Snap</Text>
         <Text style={styles.text}>An Entertainment Platform !</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button color={"#5521DD"} title={"Get Started"} />
-        <Button color={"#DD1255"} title={"Exit"} onPress={alertExit} />
+        <UtilityButton>Get Started</UtilityButton>
+        <UtilityButton failButton={true} onPress={alertExit}>
+          Exit
+        </UtilityButton>
       </View>
     </SafeAreaView>
   );
