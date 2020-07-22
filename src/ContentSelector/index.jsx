@@ -34,6 +34,20 @@ export default function ContentSelector() {
           color={colors.mediaColor}
           size={64}
         />
+        <Card
+          title="Music"
+          name="music"
+          type="font-awesome"
+          color={colors.musicColor}
+          size={64}
+        />
+        <Card
+          title="Web Series"
+          name="live-tv"
+          type="material"
+          color={colors.webSeriesColor}
+          size={64}
+        />
       </View>
     </View>
   );

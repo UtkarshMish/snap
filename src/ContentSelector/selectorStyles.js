@@ -4,9 +4,8 @@ import colors from "../../config/colors";
 
 export default selectorStyles = StyleSheet.create({
   container: {
-    flex: 0.85,
-    width: "100%",
-    height: "100%"
+    flex: 1,
+    margin: "auto",
   },
   textStyle: {
     fontSize: 38,
@@ -15,9 +14,13 @@ export default selectorStyles = StyleSheet.create({
     textAlign: "center"
   },
   subContainer: {
-    flex: 1,
+    flex: 0.4,
+    width: "auto",
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    alignContent: 'center',
+    justifyContent: 'space-evenly',
+    margin: 10,
+    flexWrap: 'wrap',
   }
 });
