@@ -1,6 +1,11 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
 import { View, Alert } from "react-native";
+
+//REACT NATIVE NAVIGATION Modules
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+
 import * as requestPermissions from "expo-permissions";
 
 import styles from "./AppStyles";
@@ -10,7 +15,18 @@ import Settings from "./src/Settings";
 import LogIn from "./src/Authentication/LogIn";
 import Register from "./src/Authentication/Register";
 import ContentSelector from "./src/ContentSelector";
-
+const options = { headerShown: false, gestureEnabled: true }
+const Stack = createStackNavigator();
+const StackNavigator = () => (
+  <Stack.Navigator initialRouteName="StartScreem">
+    <Stack.Screen name="StartScreen" component={StartScreen} options={options} />
+    <Stack.Screen name="LogIn" component={LogIn} options={options} />
+    <Stack.Screen name="ContentSelector" component={ContentSelector} options={options} />
+    <Stack.Screen name="Register" component={Register} options={options} />
+    <Stack.Screen name="Viewer" component={Viewer} options={options} />
+    <Stack.Screen name="Settings" component={Settings} options={options} />
+  </Stack.Navigator>
+)
 async function requestUserPermission()
 {
   const { granted, canAskAgain } = await requestPermissions.askAsync(requestPermissions.CAMERA_ROLL, requestPermissions.LOCATION);
@@ -25,10 +41,10 @@ export default function App()
     requestUserPermission();
   }, [])
   return (
-    <View style={[styles.container, styles.bgColor]}>
-      <StatusBar style="inverted" />
-      <ContentSelector />
+    <NavigationContainer documentTitle={{ enabled: false }} style={[styles.container, styles.bgColor]} >
+      <StatusBar style="auto" />
 
-    </View>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }

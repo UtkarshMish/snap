@@ -7,12 +7,12 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 const validationSchema = Yup.object({
   name: Yup.string().min(2).required().label("Name"),
-  phone: Yup.number().min(10).max(10).required().label("Mobile Number"),
+  phone: Yup.number().lessThan(9999999999).required().label("Mobile Number"),
   email: Yup.string().email().required().max(25).label("Username"),
   password: Yup.string().required().min(5).label("Password"),
   confirmPassword: Yup.string().required().min(5).label("Confirmed Password"),
 });
-const Register = () => {
+const Register = ({ navigation: { navigate } }) => {
   const handleRegister = ({
     name,
     phone,
@@ -23,6 +23,7 @@ const Register = () => {
     Alert.alert("Success !", `Username: ${email} and Password: ${password}`, [
       { text: "Ok" },
     ]);
+    navigate("ContentSelector");
   };
   return (
     <ScrollView style={registerStyles.container}>
@@ -31,7 +32,7 @@ const Register = () => {
         <Formik
           initialValues={{
             name: "",
-            phone: "",
+            phone: Number(),
             email: "",
             password: "",
             confirmPassword: "",

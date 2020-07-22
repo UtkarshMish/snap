@@ -15,7 +15,7 @@ export default selectorStyles = StyleSheet.create({
     textAlign: "center"
   },
   subContainer: {
-    flex: 0.35,
+    flex: 0.45,
     width: "auto",
     flexDirection: 'row',
     alignItems: 'center',

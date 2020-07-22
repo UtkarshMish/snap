@@ -12,13 +12,14 @@ const validationSchema = Yup.object({
   password: Yup.string().required().min(5).label("Password"),
 });
 
-const LogIn = () => {
+const LogIn = ({ navigation: { navigate } }) => {
   const handleLogin = ({ username, password }) => {
     Alert.alert(
       "Success !",
       `Username: ${username} and Password: ${password}`,
       [{ text: "Ok" }]
     );
+    navigate("ContentSelector");
   };
   return (
     <ScrollView style={loginStyles.container}>
@@ -55,7 +56,10 @@ const LogIn = () => {
               <Text style={loginStyles.errorMessage}>{errors.password}</Text>
               <View style={loginStyles.buttonContainer}>
                 <UtilityButton onPress={handleSubmit}>Login</UtilityButton>
-                <UtilityButton color={colors.switchTrue}>
+                <UtilityButton
+                  onPress={() => navigate("Register")}
+                  color={colors.switchTrue}
+                >
                   Register
                 </UtilityButton>
               </View>
