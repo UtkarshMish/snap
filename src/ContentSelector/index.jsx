@@ -48,6 +48,13 @@ export default function ContentSelector() {
           color={colors.webSeriesColor}
           size={64}
         />
+        <Card
+          title="Radio"
+          name="radio"
+          type="material"
+          color={colors.radioColor}
+          size={64}
+        />
       </View>
     </View>
   );

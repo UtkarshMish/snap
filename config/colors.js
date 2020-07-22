@@ -14,7 +14,8 @@ export default {
   switchFalse: "#f4f3f4",
   movieColor: "#f50",
   tvColor: "#35F",
-  mediaColor: "#AC5",
+  mediaColor: "#4D4",
   musicColor: "#F07",
-  webSeriesColor: "#C68"
+  webSeriesColor: "#C68",
+  radioColor: "#A5C"
 }
