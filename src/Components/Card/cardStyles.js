@@ -4,10 +4,16 @@ import colors from "../../../config/colors";
 export default cardStyles = StyleSheet.create({
   container: {
     display: 'flex',
-    margin: 20,
+    padding: 10,
+    width: 125,
+    borderWidth: 1,
+    elevation: 20,
+    borderRadius: 20,
+    backgroundColor: colors.switchFalse,
+    margin: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    alignContent: 'space-between',
+    alignContent: 'center',
     flexWrap: 'wrap',
   },
   textStyle: {

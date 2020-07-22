@@ -8,19 +8,20 @@ export default selectorStyles = StyleSheet.create({
     margin: "auto",
   },
   textStyle: {
+    width: "100%",
     fontSize: 38,
     fontWeight: "800",
-    color: colors.trackTrue,
+    color: colors.backgroundDark,
     textAlign: "center"
   },
   subContainer: {
-    flex: 0.4,
+    flex: 0.35,
     width: "auto",
     flexDirection: 'row',
     alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'space-evenly',
-    margin: 10,
+    margin: "auto",
     flexWrap: 'wrap',
   }
 });
