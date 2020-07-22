@@ -1,14 +1,15 @@
 import React from 'react';
 import { View, Text, Switch } from 'react-native';
 import colors from '../../../config/colors';
-import styles from "../SettingBox/styles";
+import settingBoxStyles from "./settingBoxStyles";
 
-export default function SettingBox({ children, toggleSwitch, isEnabled, bgColor }) {
+export default function SettingBox({ children, toggleSwitch, isEnabled, bgColor })
+{
   bgColor = bgColor && bgColor.color == "aliceblue" ? bgColor : null;
   return (
-    <View style={[styles.sideContent, styles.itemBorder]}>
-      <Text style={[styles.text, bgColor]}>{children}</Text>
-      <Text style={[styles.textInfo, bgColor]}>
+    <View style={[settingBoxStyles.sideContent, settingBoxStyles.itemBorder]}>
+      <Text style={[settingBoxStyles.text, bgColor]}>{children}</Text>
+      <Text style={[settingBoxStyles.textInfo, bgColor]}>
         {isEnabled ? "Black" : "White"}
       </Text>
       <Switch

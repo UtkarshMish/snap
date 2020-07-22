@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import colors from "../../config/colors";
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform } from "react-native";
 
-export default styles = StyleSheet.create({
+export default settingStyles = StyleSheet.create({
   container: {
     flex: 1,
     display: "flex",

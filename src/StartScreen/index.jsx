@@ -9,22 +9,22 @@ import {
   ImageBackground,
 } from "react-native";
 
-import styles from "./styles";
+import screenStyles from "./screenStyles";
 import UtilityButton from "../Components/Buttons";
 const bgImage = require("../../assets/HomeScreen.gif");
 export default function StartScreen() {
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={screenStyles.mainContainer}>
       <ImageBackground
         source={bgImage}
         blurRadius={100}
-        style={styles.backgroundImage}
+        style={screenStyles.backgroundImage}
       />
-      <View style={styles.sideContent}>
-        <Text style={styles.titleText}>Snap</Text>
-        <Text style={styles.text}>An Entertainment Platform !</Text>
+      <View style={screenStyles.sideContent}>
+        <Text style={screenStyles.titleText}>Snap</Text>
+        <Text style={screenStyles.text}>An Entertainment Platform !</Text>
       </View>
-      <View style={styles.buttonContainer}>
+      <View style={screenStyles.buttonContainer}>
         <UtilityButton>Get Started</UtilityButton>
         <UtilityButton failButton={true} onPress={alertExit}>
           Exit

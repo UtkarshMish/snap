@@ -1,9 +1,7 @@
-import { StyleSheet } from 'react-native';
-import colors from '../../../config/colors';
+import { StyleSheet } from "react-native";
+import colors from "../../../config/colors";
 
-
-export default styles = StyleSheet.create({
-
+export default settingBoxStyles = StyleSheet.create({
   sideContent: {
     flexDirection: "row",
     width: "auto",

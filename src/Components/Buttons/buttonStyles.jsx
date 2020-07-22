@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import colors from "../../../config/colors";
-export default styles = StyleSheet.create({
+export default buttonStyles = StyleSheet.create({
   button: {
     flex: 1,
     shadowColor: colors.secondary,

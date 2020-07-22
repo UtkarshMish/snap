@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { StyleSheet } from "react-native";
 import colors from "../../config/colors";
-export default styles = StyleSheet.create({
+export default viewerStyles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
@@ -16,7 +16,7 @@ export default styles = StyleSheet.create({
     flexDirection: "row-reverse",
     shadowColor: "red",
     elevation: 1,
-    alignItems: "flex-start"
+    alignItems: "flex-start",
   },
   backgroundImage: {
     flex: 0.75,

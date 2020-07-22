@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ScrollView, Text, TextInput, Alert } from "react-native";
 
-import styles from "./styles";
+import loginStyles from "./loginStyles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
 import { Formik } from "formik";
@@ -21,9 +21,9 @@ const LogIn = () => {
     );
   };
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <Text style={styles.mainTitle}>LOG IN</Text>
+    <ScrollView style={loginStyles.container}>
+      <View style={loginStyles.inputContainer}>
+        <Text style={loginStyles.mainTitle}>LOG IN</Text>
         <Formik
           initialValues={{ username: "", password: "" }}
           onSubmit={handleLogin}
@@ -35,25 +35,25 @@ const LogIn = () => {
                 clearButtonMode="always"
                 textContentType="emailAddress"
                 keyboardType="email-address"
-                style={styles.textStyle}
+                style={loginStyles.textStyle}
                 onChangeText={handleChange("username")}
                 placeholder="Username"
                 autoCapitalize="none"
                 autoCorrect={false}
                 autoFocus={true}
               />
-              <Text style={styles.errorMessage}>{errors.username}</Text>
+              <Text style={loginStyles.errorMessage}>{errors.username}</Text>
               <TextInput
                 clearButtonMode="always"
                 secureTextEntry={true}
                 textContentType="password"
                 onChangeText={handleChange("password")}
-                style={styles.textStyle}
+                style={loginStyles.textStyle}
                 autoCorrect={false}
                 placeholder="Password"
               />
-              <Text style={styles.errorMessage}>{errors.password}</Text>
-              <View style={styles.buttonContainer}>
+              <Text style={loginStyles.errorMessage}>{errors.password}</Text>
+              <View style={loginStyles.buttonContainer}>
                 <UtilityButton onPress={handleSubmit}>Login</UtilityButton>
                 <UtilityButton color={colors.switchTrue}>
                   Register

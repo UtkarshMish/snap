@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, Text, SafeAreaView } from "react-native";
 
-import styles from "./style";
+import settingStyles from "./settingStyles";
 import colors from "../../config/colors";
 import SettingBox from "../Components/SettingBox";
 
@@ -9,7 +9,7 @@ export default function Settings() {
   const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () =>
     setIsEnabled((previousState) => {
-      styles.bgColor = previousState
+      settingStyles.bgColor = previousState
         ? {
             backgroundColor: colors.backgroundWhite,
             color: colors.backgroundDark,
@@ -21,14 +21,16 @@ export default function Settings() {
       return !previousState;
     });
   return (
-    <SafeAreaView style={[styles.container, styles.bgColor]}>
-      <View style={styles.sideContent}>
-        <Text style={[styles.mainTitle, styles.bgColor]}>User Settings</Text>
+    <SafeAreaView style={[settingStyles.container, settingStyles.bgColor]}>
+      <View style={settingStyles.sideContent}>
+        <Text style={[settingStyles.mainTitle, settingStyles.bgColor]}>
+          User Settings
+        </Text>
       </View>
       <SettingBox
         toggleSwitch={toggleSwitch}
         isEnabled={isEnabled}
-        bgColor={styles.bgColor}
+        bgColor={settingStyles.bgColor}
       >
         Background Color
       </SettingBox>

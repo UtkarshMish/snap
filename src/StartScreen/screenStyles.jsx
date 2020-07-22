@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from "react-native";
 
 import colors from "../../config/colors";
 
-export default styles = StyleSheet.create({
+export default screenStyles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     position: "absolute",

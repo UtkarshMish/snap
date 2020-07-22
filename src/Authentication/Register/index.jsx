@@ -1,6 +1,6 @@
 import React from "react";
 import { View, ScrollView, Text, TextInput, Alert } from "react-native";
-import styles from "./styles";
+import registerStyles from "./registerStyles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
 import { Formik } from "formik";
@@ -25,9 +25,9 @@ const Register = () => {
     ]);
   };
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.inputContainer}>
-        <Text style={styles.mainTitle}>SIGN UP</Text>
+    <ScrollView style={registerStyles.container}>
+      <View style={registerStyles.inputContainer}>
+        <Text style={registerStyles.mainTitle}>SIGN UP</Text>
         <Formik
           initialValues={{
             name: "",
@@ -45,57 +45,57 @@ const Register = () => {
                 clearButtonMode="always"
                 textContentType="name"
                 keyboardType="default"
-                style={styles.textStyle}
+                style={registerStyles.textStyle}
                 onChangeText={handleChange("name")}
                 placeholder="Name"
                 autoCapitalize="words"
                 autoCorrect={false}
                 autoFocus={true}
               />
-              <Text style={styles.error}>{errors.name}</Text>
+              <Text style={registerStyles.error}>{errors.name}</Text>
               <TextInput
                 clearButtonMode="always"
                 textContentType="telephoneNumber"
                 keyboardType="number-pad"
-                style={styles.textStyle}
+                style={registerStyles.textStyle}
                 onChangeText={handleChange("phone")}
                 placeholder="Mobile Number"
                 autoCapitalize="none"
                 autoCorrect={false}
               />
-              <Text style={styles.error}>{errors.phone}</Text>
+              <Text style={registerStyles.error}>{errors.phone}</Text>
               <TextInput
                 clearButtonMode="always"
                 textContentType="emailAddress"
                 keyboardType="email-address"
-                style={styles.textStyle}
+                style={registerStyles.textStyle}
                 onChangeText={handleChange("email")}
                 placeholder="Username"
                 autoCapitalize="none"
                 autoCorrect={false}
               />
-              <Text style={styles.error}>{errors.email}</Text>
+              <Text style={registerStyles.error}>{errors.email}</Text>
               <TextInput
                 clearButtonMode="always"
                 secureTextEntry={true}
                 textContentType="password"
                 onChangeText={handleChange("password")}
-                style={styles.textStyle}
+                style={registerStyles.textStyle}
                 autoCorrect={false}
                 placeholder="Password"
               />
-              <Text style={styles.error}>{errors.password}</Text>
+              <Text style={registerStyles.error}>{errors.password}</Text>
               <TextInput
                 clearButtonMode="always"
                 secureTextEntry={true}
                 textContentType="password"
                 onChangeText={handleChange("confirmPassword")}
-                style={styles.textStyle}
+                style={registerStyles.textStyle}
                 autoCorrect={false}
                 placeholder="Confirm Password"
               />
-              <Text style={styles.error}>{errors.confirmPassword}</Text>
-              <View style={styles.buttonContainer}>
+              <Text style={registerStyles.error}>{errors.confirmPassword}</Text>
+              <View style={registerStyles.buttonContainer}>
                 <UtilityButton color={colors.switchTrue} onPress={handleSubmit}>
                   Sign Up
                 </UtilityButton>

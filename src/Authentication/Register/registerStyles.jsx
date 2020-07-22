@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import colors from "../../../config/colors";
 
-export default styles = StyleSheet.create({
+export default registerStyles = StyleSheet.create({
   container: {
     flex: 1,
     top: "5%",
