@@ -12,4 +12,7 @@ export default {
   failure: "#F10045",
   switchTrue: "#f0543C",
   switchFalse: "#f4f3f4",
+  movieColor: "#f50",
+  tvColor: "#35F",
+  mediaColor: "#AC5"
 }

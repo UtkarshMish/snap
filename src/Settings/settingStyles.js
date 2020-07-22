@@ -1,5 +1,4 @@
 import React from "react";
-import colors from "../../config/colors";
 import { StyleSheet, Platform } from "react-native";
 
 export default settingStyles = StyleSheet.create({
