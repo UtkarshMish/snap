@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { Icon, Image } from 'react-native-elements';
 import playerStyles from './playerStyles';
 import { Audio } from 'expo-av';
 import { playerTime } from '../../Utilities/timeMethods';
@@ -77,12 +77,11 @@ const Player = ({
         maximumTrackTintColor={colors.borderColor}
         style={playerStyles.SeekBar}
         value={positionMillis}
-        onValueChange={async (pos) => await seekMusic(pos, false)}
+        onSlidingComplete={async (pos) => await seekMusic(pos, false)}
         maximumValue={totalDuration}
         minimumValue={0}
       />
       <View style={[style, playerStyles.subContainer]} {...rest} >
-
         <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
         <Icon name="backward" type="font-awesome" onPress={() => seekMusic(-15)} size={size} />
         <Icon name={iconType} type="font-awesome" onPress={pauseMusic} size={size} />

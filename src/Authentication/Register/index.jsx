@@ -24,7 +24,11 @@ const Register = ({ navigation: { navigate } }) => {
 	};
 	return (
 		<View style={registerStyles.container}>
-			<ScrollView style={registerStyles.inputContainer}>
+			<ScrollView
+				style={registerStyles.inputContainer}
+				canCancelContentTouches='false'
+				keyboardShouldPersistTaps='always'
+			>
 				<Text style={registerStyles.mainTitle}>SIGN UP</Text>
 				<Formik
 					initialValues={{

@@ -19,7 +19,13 @@ export default function Viewer({
 				<UtilityButton>next</UtilityButton>
 				<UtilityButton failButton={true}>previous</UtilityButton>
 			</View>
-
+			{URI && (
+				<Image
+					resizeMode='cover'
+					source={require('../../assets/HomeScreen.jpg')}
+					style={viewerStyles.backgroundImage}
+				/>
+			)}
 			{URI && <Player URI={URI} autoPlay={true} />}
 		</SafeAreaView>
 	);

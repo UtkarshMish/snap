@@ -19,9 +19,7 @@ export default viewerStyles = StyleSheet.create({
     alignItems: "flex-start",
   },
   backgroundImage: {
-    flex: 0.75,
-    width: "100%",
-    height: "100%",
-    alignContent: "stretch",
+    flex: 0.6,
+    width: "auto",
   },
 });

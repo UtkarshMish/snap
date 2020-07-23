@@ -20,7 +20,11 @@ const LogIn = ({ navigation: { navigate } }) => {
 	};
 	return (
 		<View style={loginStyles.container}>
-			<ScrollView style={loginStyles.mainContainer}>
+			<ScrollView
+				style={loginStyles.mainContainer}
+				canCancelContentTouches='false'
+				keyboardShouldPersistTaps='always'
+			>
 				<Text style={loginStyles.mainTitle}>LOG IN</Text>
 				<Formik
 					initialValues={{ username: '', password: '' }}
