@@ -4,7 +4,8 @@ import { Icon } from 'react-native-elements';
 import playerStyles from './playerStyles';
 import { Audio } from 'expo-av';
 import { playerTime } from '../../Utilities/timeMethods';
-
+import Slider from '@react-native-community/slider';
+import colors from '../../../config/colors';
 const Player = ({
   URI, size = 56, autoPlay = false,
   style, ...rest
@@ -30,12 +31,18 @@ const Player = ({
     }
   }
 
-  const seekMusic = async (posInSec) =>
+  const seekMusic = async (posInSec, seek = true) =>
   {
+
     const { positionMillis } = await music.getStatusAsync();
-    const newPosition = positionMillis + (posInSec * 1000);
+    const newPosition = seek == true ? positionMillis + (posInSec * 1000) : posInSec;
     await music.setPositionAsync(newPosition);
-    if (newPosition >= 0 && newPosition <= totalDuration)
+
+    if (newPosition <= 0)
+      setPositionMillis(0);
+    else if (newPosition >= totalDuration)
+      setPositionMillis(totalDuration);
+    else
       setPositionMillis(newPosition);
   }
   const startMusic = async () =>
@@ -62,12 +69,28 @@ const Player = ({
 
   startMusic();
   return (
-    <View style={[style, playerStyles.container]} {...rest} >
-      <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
-      <Icon name="backward" type="font-awesome" onPress={() => seekMusic(-15)} size={size} />
-      <Icon name={iconType} type="font-awesome" onPress={pauseMusic} size={size} />
-      <Icon name="forward" type="font-awesome" onPress={() => seekMusic(15)} size={size} />
-    </View>);
+
+    <View style={[style, playerStyles.container]} >
+      <Slider
+        thumbTintColor={colors.secondary}
+        minimumTrackTintColor={colors.switchFalse}
+        maximumTrackTintColor={colors.switchTrue}
+        style={playerStyles.SeekBar}
+        value={positionMillis}
+        onValueChange={async (pos) => await seekMusic(pos, false)}
+        maximumValue={totalDuration}
+        minimumValue={0}
+      />
+      <View style={[style, playerStyles.subContainer]} {...rest} >
+
+        <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
+        <Icon name="backward" type="font-awesome" onPress={() => seekMusic(-15)} size={size} />
+        <Icon name={iconType} type="font-awesome" onPress={pauseMusic} size={size} />
+        <Icon name="forward" type="font-awesome" onPress={() => seekMusic(15)} size={size} />
+      </View>
+    </View>
+
+  );
 
 
 };
