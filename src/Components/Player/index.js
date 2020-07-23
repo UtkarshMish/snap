@@ -12,13 +12,13 @@ const Player = ({
 {
   const pauseMusic = async () =>
   {
-    if (status == false && music != null) {
+    if (paused == false && music != null) {
       const { isPlaying } = await music.playAsync();
-      setStatus(isPlaying);
+      setPaused(isPlaying);
     }
     else {
       const { isPlaying } = await music.pauseAsync();
-      setStatus(isPlaying);
+      setPaused(isPlaying);
     }
   }
   const getTime = async () =>
@@ -33,27 +33,30 @@ const Player = ({
   const seekMusic = async (posInSec) =>
   {
     const { positionMillis } = await music.getStatusAsync();
-    await music.setPositionAsync(positionMillis + (posInSec * 1000));
+    const newPosition = positionMillis + (posInSec * 1000);
+    await music.setPositionAsync(newPosition);
+    if (newPosition >= 0 && newPosition <= totalDuration)
+      setPositionMillis(newPosition);
   }
   const startMusic = async () =>
   {
     if (music == null) {
       const { sound, status: { isPlaying, durationMillis } } = await Audio.Sound.createAsync({ uri: URI }, { shouldPlay: autoPlay });
       setMusic(sound);
-      setStatus(isPlaying);
+      setPaused(isPlaying);
       setTotalDuration(durationMillis);
     }
   }
-  const [status, setStatus] = useState(false);
+  const [paused, setPaused] = useState(false);
   const [music, setMusic] = useState(null);
   const [positionMillis, setPositionMillis] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
-  const iconType = status == false ? "play" : "pause";
+  const iconType = paused == false ? "play" : "pause";
   useEffect(() =>
   {
     const Timer = setTimeout(() => getTime(), 1000);
     return () => clearInterval(Timer);
-  }, [positionMillis, status]);
+  }, [positionMillis, paused]);
 
 
 
