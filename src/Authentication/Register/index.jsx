@@ -31,8 +31,8 @@ const Register = ({ navigation: { navigate } }) => {
     navigate("ContentSelector");
   };
   return (
-    <ScrollView style={registerStyles.container}>
-      <View style={registerStyles.inputContainer}>
+    <View style={registerStyles.container}>
+      <ScrollView style={registerStyles.inputContainer}>
         <Text style={registerStyles.mainTitle}>SIGN UP</Text>
         <Formik
           initialValues={{
@@ -119,8 +119,8 @@ const Register = ({ navigation: { navigate } }) => {
             </>
           )}
         </Formik>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

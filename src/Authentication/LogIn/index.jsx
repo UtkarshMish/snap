@@ -23,8 +23,8 @@ const LogIn = ({ navigation: { navigate } }) => {
     navigate("ContentSelector");
   };
   return (
-    <ScrollView style={loginStyles.container}>
-      <View style={loginStyles.inputContainer}>
+    <View style={loginStyles.container}>
+      <ScrollView style={loginStyles.mainContainer}>
         <Text style={loginStyles.mainTitle}>LOG IN</Text>
         <Formik
           initialValues={{ username: "", password: "" }}
@@ -33,32 +33,34 @@ const LogIn = ({ navigation: { navigate } }) => {
         >
           {({ handleSubmit, handleChange, errors }) => (
             <>
-              <FormInput
-                iconName="user-circle-o"
-                type="font-awesome"
-                clearButtonMode="always"
-                textContentType="emailAddress"
-                keyboardType="email-address"
-                style={loginStyles.textStyle}
-                onChangeText={handleChange("username")}
-                placeholder="Username"
-                autoCapitalize="none"
-                autoCorrect={false}
-                autoFocus={true}
-              />
-              <Text style={loginStyles.errorMessage}>{errors.username}</Text>
-              <FormInput
-                iconName="key"
-                type="foundation"
-                clearButtonMode="always"
-                secureTextEntry={true}
-                textContentType="password"
-                onChangeText={handleChange("password")}
-                style={loginStyles.textStyle}
-                autoCorrect={false}
-                placeholder="Password"
-              />
-              <Text style={loginStyles.errorMessage}>{errors.password}</Text>
+              <View style={loginStyles.inputContainer}>
+                <FormInput
+                  iconName="user-circle-o"
+                  type="font-awesome"
+                  clearButtonMode="always"
+                  textContentType="emailAddress"
+                  keyboardType="email-address"
+                  style={loginStyles.textStyle}
+                  onChangeText={handleChange("username")}
+                  placeholder="Username"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  autoFocus={true}
+                />
+                <Text style={loginStyles.errorMessage}>{errors.username}</Text>
+                <FormInput
+                  iconName="key"
+                  type="foundation"
+                  clearButtonMode="always"
+                  secureTextEntry={true}
+                  textContentType="password"
+                  onChangeText={handleChange("password")}
+                  style={loginStyles.textStyle}
+                  autoCorrect={false}
+                  placeholder="Password"
+                />
+                <Text style={loginStyles.errorMessage}>{errors.password}</Text>
+              </View>
               <View style={loginStyles.buttonContainer}>
                 <UtilityButton onPress={handleSubmit}>Login</UtilityButton>
                 <UtilityButton
@@ -71,8 +73,8 @@ const LogIn = ({ navigation: { navigate } }) => {
             </>
           )}
         </Formik>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

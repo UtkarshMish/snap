@@ -5,10 +5,12 @@ import colors from "../../../config/colors";
 export default loginStyles = StyleSheet.create({
   container: {
     flex: 1,
-    top: "3%",
-    width: "100%",
-    height: "100%",
-    margin: "auto",
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  mainContainer: {
+    flex: 1,
     paddingLeft: "10%",
     paddingRight: "10%",
   },
@@ -21,8 +23,8 @@ export default loginStyles = StyleSheet.create({
   },
   inputContainer: {
     flex: 1,
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 5,
+    marginBottom: 5,
   },
   textStyle: {
     textAlign: "center",
@@ -34,8 +36,9 @@ export default loginStyles = StyleSheet.create({
     padding: 10,
   },
   buttonContainer: {
-    flex: 0.4,
-    paddingBottom: 10,
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
   },
   errorMessage: {
     fontSize: 16,
