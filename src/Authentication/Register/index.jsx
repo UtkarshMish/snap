@@ -10,7 +10,11 @@ const validationSchema = Yup.object({
   phone: Yup.number().lessThan(9999999999).required().label("Mobile Number"),
   email: Yup.string().email().required().max(25).label("Username"),
   password: Yup.string().required().min(5).label("Password"),
-  confirmPassword: Yup.string().required().min(5).label("Confirmed Password"),
+  confirmPassword: Yup.string()
+    .required()
+    .min(5)
+    .oneOf([Yup.ref("password"), null], "Password Must Match")
+    .label("Confirmed Password"),
 });
 const Register = ({ navigation: { navigate } }) => {
   const handleRegister = ({
@@ -31,11 +35,11 @@ const Register = ({ navigation: { navigate } }) => {
         <Text style={registerStyles.mainTitle}>SIGN UP</Text>
         <Formik
           initialValues={{
-            name: "",
+            name: String(),
             phone: Number(),
-            email: "",
-            password: "",
-            confirmPassword: "",
+            email: String(),
+            password: String(),
+            confirmPassword: String(),
           }}
           onSubmit={handleRegister}
           validationSchema={validationSchema}
