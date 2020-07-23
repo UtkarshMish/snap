@@ -9,5 +9,5 @@ export function playerTime(duration)
   minutes = (minutes < 10) ? "0" + minutes : minutes;
   seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-  return `${hours}:${minutes}:${seconds}`;
+  return `${minutes}:${seconds}`;
 }
