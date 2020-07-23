@@ -29,7 +29,10 @@ const StackNavigator = () => (
 )
 async function requestUserPermission()
 {
-  const { granted, canAskAgain } = await requestPermissions.askAsync(requestPermissions.CAMERA_ROLL, requestPermissions.LOCATION);
+  const { granted, canAskAgain } = await requestPermissions
+    .askAsync(
+      requestPermissions.CAMERA_ROLL,
+      requestPermissions.LOCATION);
   if (!granted && canAskAgain)
     Alert.alert("Permission Required !", "These Permissions are required to get your images and locations", [{ text: "OK" }]);
 
