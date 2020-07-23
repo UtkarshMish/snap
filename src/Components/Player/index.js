@@ -47,7 +47,6 @@ const Player = ({
   {
     if (music) {
       const status = await music.getStatusAsync();
-      console.log(status);
       setPositionMillis(status.positionMillis);
       setTotalDuration(status.durationMillis);
     }
