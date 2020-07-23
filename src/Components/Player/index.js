@@ -73,8 +73,8 @@ const Player = ({
     <View style={[style, playerStyles.container]} >
       <Slider
         thumbTintColor={colors.secondary}
-        minimumTrackTintColor={colors.switchFalse}
-        maximumTrackTintColor={colors.switchTrue}
+        minimumTrackTintColor={colors.fontColor}
+        maximumTrackTintColor={colors.borderColor}
         style={playerStyles.SeekBar}
         value={positionMillis}
         onValueChange={async (pos) => await seekMusic(pos, false)}
