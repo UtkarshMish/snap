@@ -20,7 +20,7 @@ export default function Viewer({
 				<UtilityButton failButton={true}>previous</UtilityButton>
 			</View>
 
-			{URI && <Player URI={URI} />}
+			{URI && <Player URI={URI} autoPlay={true} />}
 		</SafeAreaView>
 	);
 }

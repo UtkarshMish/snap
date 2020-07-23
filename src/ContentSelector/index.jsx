@@ -8,10 +8,7 @@ import { handleMedia, handleMusic } from '../Utilities/touchHandler';
 
 export default function ContentSelector({ navigation }) {
 	const [resource, setResource] = useState(null);
-	async function handleAudio(navigate) {
-		const URI = await handleMusic();
-		if (URI) navigation.navigate('Viewer', { URI });
-	}
+
 	return (
 		<View style={selectorStyles.container}>
 			<Image
@@ -37,7 +34,7 @@ export default function ContentSelector({ navigation }) {
 				/>
 				<Card
 					title='Music'
-					onPress={handleAudio}
+					onPress={handleMusicSelect}
 					name='music'
 					type='font-awesome'
 					color={colors.musicColor}
@@ -54,4 +51,8 @@ export default function ContentSelector({ navigation }) {
 			</View>
 		</View>
 	);
+	async function handleMusicSelect(navigate) {
+		const URI = await handleMusic();
+		if (URI) navigation.navigate('Viewer', { URI });
+	}
 }

@@ -14,13 +14,24 @@ const Player = ({
   const [music, setMusic] = useState(null);
   const [positionMillis, setPositionMillis] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
+  const iconType = status == false ? "play" : "pause";
   useEffect(() =>
   {
     const Timer = setTimeout(() => getTime(), 1000);
     return () => clearInterval(Timer);
   }, [positionMillis, status]);
 
-  const iconType = status == false ? "play" : "pause";
+
+
+  startMusic();
+  return (
+    <View style={[style, playerStyles.container]} {...rest} >
+      <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
+      <Icon name="backward" type="font-awesome" onPress={() => seekMusic(-15)} size={size} />
+      <Icon name={iconType} type="font-awesome" onPress={pauseMusic} size={size} />
+      <Icon name="forward" type="font-awesome" onPress={() => seekMusic(15)} size={size} />
+    </View>);
+
   const pauseMusic = async () =>
   {
     if (status == false && music != null) {
@@ -45,24 +56,17 @@ const Player = ({
   const seekMusic = async (posInSec) =>
   {
     const { positionMillis } = await music.getStatusAsync();
-    const status = await music.setPositionAsync(positionMillis + (posInSec * 1000));
+    await music.setPositionAsync(positionMillis + (posInSec * 1000));
   }
   const startMusic = async () =>
   {
     if (music == null) {
-      const { sound, status: { isPlaying } } = await Audio.Sound.createAsync({ uri: URI }, { shouldPlay: autoPlay });
+      const { sound, status: { isPlaying, durationMillis } } = await Audio.Sound.createAsync({ uri: URI }, { shouldPlay: autoPlay });
       setMusic(sound);
       setStatus(isPlaying);
+      setTotalDuration(durationMillis);
     }
   }
-  startMusic();
-  return (
-    <View style={[style, playerStyles.container]} {...rest} >
-      <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
-      <Icon name="backward" type="font-awesome" onPress={() => seekMusic(-15)} size={size} />
-      <Icon name={iconType} type="font-awesome" onPress={pauseMusic} size={size} />
-      <Icon name="forward" type="font-awesome" onPress={() => seekMusic(15)} size={size} />
-    </View>);
 };
 
 export default Player;
