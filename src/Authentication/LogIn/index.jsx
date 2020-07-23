@@ -1,11 +1,12 @@
 import React from "react";
-import { View, ScrollView, Text, TextInput, Alert } from "react-native";
+import { View, ScrollView, Text, Alert } from "react-native";
 
 import loginStyles from "./loginStyles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import FormInput from "../../Components/Input";
 
 const validationSchema = Yup.object({
   username: Yup.string().required().email().max(25).label("Username"),
@@ -32,7 +33,9 @@ const LogIn = ({ navigation: { navigate } }) => {
         >
           {({ handleSubmit, handleChange, errors }) => (
             <>
-              <TextInput
+              <FormInput
+                iconName="user-circle-o"
+                type="font-awesome"
                 clearButtonMode="always"
                 textContentType="emailAddress"
                 keyboardType="email-address"
@@ -44,7 +47,9 @@ const LogIn = ({ navigation: { navigate } }) => {
                 autoFocus={true}
               />
               <Text style={loginStyles.errorMessage}>{errors.username}</Text>
-              <TextInput
+              <FormInput
+                iconName="key"
+                type="foundation"
                 clearButtonMode="always"
                 secureTextEntry={true}
                 textContentType="password"

@@ -5,6 +5,7 @@ import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import FormInput from "../../Components/Input";
 const validationSchema = Yup.object({
   name: Yup.string().min(2).required().label("Name"),
   phone: Yup.number().lessThan(9999999999).required().label("Mobile Number"),
@@ -46,7 +47,9 @@ const Register = ({ navigation: { navigate } }) => {
         >
           {({ handleChange, handleSubmit, errors }) => (
             <>
-              <TextInput
+              <FormInput
+                iconName="user-circle-o"
+                type="font-awesome"
                 clearButtonMode="always"
                 textContentType="name"
                 keyboardType="default"
@@ -58,7 +61,9 @@ const Register = ({ navigation: { navigate } }) => {
                 autoFocus={true}
               />
               <Text style={registerStyles.error}>{errors.name}</Text>
-              <TextInput
+              <FormInput
+                iconName="phone-in-talk"
+                type="material-icon"
                 clearButtonMode="always"
                 textContentType="telephoneNumber"
                 keyboardType="number-pad"
@@ -69,7 +74,9 @@ const Register = ({ navigation: { navigate } }) => {
                 autoCorrect={false}
               />
               <Text style={registerStyles.error}>{errors.phone}</Text>
-              <TextInput
+              <FormInput
+                iconName="email"
+                type="material-icon"
                 clearButtonMode="always"
                 textContentType="emailAddress"
                 keyboardType="email-address"
@@ -80,7 +87,9 @@ const Register = ({ navigation: { navigate } }) => {
                 autoCorrect={false}
               />
               <Text style={registerStyles.error}>{errors.email}</Text>
-              <TextInput
+              <FormInput
+                iconName="key"
+                type="foundation"
                 clearButtonMode="always"
                 secureTextEntry={true}
                 textContentType="password"
@@ -90,7 +99,9 @@ const Register = ({ navigation: { navigate } }) => {
                 placeholder="Password"
               />
               <Text style={registerStyles.error}>{errors.password}</Text>
-              <TextInput
+              <FormInput
+                iconName="key"
+                type="foundation"
                 clearButtonMode="always"
                 secureTextEntry={true}
                 textContentType="password"
