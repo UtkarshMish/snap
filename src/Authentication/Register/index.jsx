@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text, TextInput, Alert } from "react-native";
+import { View, ScrollView, Text, Alert } from "react-native";
 import registerStyles from "./registerStyles";
 import UtilityButton from "../../Components/Buttons";
 import colors from "../../../config/colors";

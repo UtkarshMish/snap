@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import colors from '../../../config/colors';
 
 export default inputStyles = StyleSheet.create({
   container: {

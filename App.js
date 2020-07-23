@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect } from "react";
-import { View, Alert } from "react-native";
+import { Alert } from "react-native";
 
 //REACT NATIVE NAVIGATION Modules
 import { createStackNavigator } from "@react-navigation/stack";
