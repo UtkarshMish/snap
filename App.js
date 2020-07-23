@@ -15,16 +15,16 @@ import Settings from "./src/Settings";
 import LogIn from "./src/Authentication/LogIn";
 import Register from "./src/Authentication/Register";
 import ContentSelector from "./src/ContentSelector";
-const options = { headerShown: false, gestureEnabled: true }
+
 const Stack = createStackNavigator();
 const StackNavigator = () => (
-  <Stack.Navigator initialRouteName="StartScreem">
-    <Stack.Screen name="StartScreen" component={StartScreen} options={options} />
-    <Stack.Screen name="LogIn" component={LogIn} options={options} />
-    <Stack.Screen name="ContentSelector" component={ContentSelector} options={options} />
-    <Stack.Screen name="Register" component={Register} options={options} />
-    <Stack.Screen name="Viewer" component={Viewer} options={options} />
-    <Stack.Screen name="Settings" component={Settings} options={options} />
+  <Stack.Navigator initialRouteName="StartScreen" screenOptions={options}>
+    <Stack.Screen name="StartScreen" component={StartScreen} />
+    <Stack.Screen name="LogIn" component={LogIn} />
+    <Stack.Screen name="ContentSelector" component={ContentSelector} />
+    <Stack.Screen name="Register" component={Register} />
+    <Stack.Screen name="Viewer" component={Viewer} />
+    <Stack.Screen name="Settings" component={Settings} />
   </Stack.Navigator>
 )
 async function requestUserPermission()
@@ -48,3 +48,5 @@ export default function App()
     </NavigationContainer>
   );
 }
+
+const options = { headerShown: false };
