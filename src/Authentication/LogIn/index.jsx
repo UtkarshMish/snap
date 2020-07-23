@@ -9,7 +9,7 @@ import * as Yup from 'yup';
 import FormInput from '../../Components/Input';
 
 const validationSchema = Yup.object({
-	username: Yup.string().required().email().max(25).label('Username'),
+	username: Yup.string().required().email().max(100).label('Username'),
 	password: Yup.string().required().min(5).label('Password'),
 });
 

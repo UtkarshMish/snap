@@ -9,7 +9,7 @@ import FormInput from '../../Components/Input';
 const validationSchema = Yup.object({
 	name: Yup.string().min(2).required().label('Name'),
 	phone: Yup.number().lessThan(9999999999).required().label('Mobile Number'),
-	email: Yup.string().email().required().max(25).label('Username'),
+	email: Yup.string().email().required().max(100).label('Username'),
 	password: Yup.string().required().min(5).label('Password'),
 	confirmPassword: Yup.string()
 		.required()
