@@ -7,7 +7,7 @@ import { playerTime } from '../../Utilities/timeMethods';
 import Slider from '@react-native-community/slider';
 import colors from '../../../config/colors';
 const Player = ({
-  URI, size = 56, autoPlay = false,
+  URI, size = 84, autoPlay = false, controllerColors = colors.secondary,
   style, ...rest
 }) =>
 {
@@ -58,7 +58,7 @@ const Player = ({
   const [music, setMusic] = useState(null);
   const [positionMillis, setPositionMillis] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
-  const iconType = paused == false ? "play" : "pause";
+  let iconType, handlePress;
   useEffect(() =>
   {
     const Timer = setTimeout(() => getTime(), 1000);
@@ -68,24 +68,35 @@ const Player = ({
 
 
   startMusic();
+  if ((positionMillis == totalDuration) && (music != null)) {
+    iconType = "replay";
+    handlePress = () => { music.replayAsync(); setPositionMillis(0) };
+
+  }
+  else {
+    iconType = paused == false ? "play-circle-filled" : "pause";
+    handlePress = pauseMusic;
+  }
   return (
 
     <View style={[style, playerStyles.container]} >
-      <Slider
-        thumbTintColor={colors.secondary}
-        minimumTrackTintColor={colors.fontColor}
-        maximumTrackTintColor={colors.borderColor}
-        style={playerStyles.SeekBar}
-        value={positionMillis}
-        onSlidingComplete={async (pos) => await seekMusic(pos, false)}
-        maximumValue={totalDuration}
-        minimumValue={0}
-      />
-      <View style={[style, playerStyles.subContainer]} {...rest} >
+      <View style={playerStyles.SeekBar}>
+        <Slider
+          thumbTintColor={colors.secondary}
+          minimumTrackTintColor={colors.fontColor}
+          maximumTrackTintColor={colors.borderColor}
+          value={positionMillis}
+          onSlidingComplete={async (pos) => await seekMusic(pos, false)}
+          maximumValue={totalDuration}
+          minimumValue={0}
+        />
         <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
-        <Icon name="backward" type="font-awesome" onPress={() => seekMusic(-15)} size={size} />
-        <Icon name={iconType} type="font-awesome" onPress={pauseMusic} size={size} />
-        <Icon name="forward" type="font-awesome" onPress={() => seekMusic(15)} size={size} />
+      </View>
+
+      <View style={[style, playerStyles.subContainer]} {...rest} >
+        <Icon name="skip-previous" type="material-icon" onPress={() => seekMusic(-15)} size={size} color={controllerColors} />
+        <Icon name={iconType} type="material-icon" onPress={handlePress} size={size} color={controllerColors} />
+        <Icon name="skip-next" type="material-icon" onPress={() => seekMusic(15)} size={size} color={controllerColors} />
       </View>
     </View>
 
