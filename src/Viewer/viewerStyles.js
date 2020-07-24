@@ -11,15 +11,17 @@ export default viewerStyles = StyleSheet.create({
   },
 
   buttonContainers: {
-    flex: 0.25,
-    top: 30,
+    top: 25,
     flexDirection: "row-reverse",
     shadowColor: "red",
     elevation: 1,
-    alignItems: "flex-start",
   },
   backgroundImage: {
-    flex: 0.6,
-    width: "auto",
+    flex: 1,
+    position: 'absolute',
+    borderRadius: 10,
+    width: "100%",
+    height: "100%",
+    zIndex: -999,
   },
 });

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { Icon, Image } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import playerStyles from './playerStyles';
 import { Audio } from 'expo-av';
+import { LinearGradient } from 'expo-linear-gradient';
 import { playerTime } from '../../Utilities/timeMethods';
 import Slider from '@react-native-community/slider';
 import colors from '../../../config/colors';
 const Player = ({
-  URI, size = 84, autoPlay = false, controllerColors = colors.secondary,
+  URI, size = 62, autoPlay = false, controllerColors = colors.backgroundDark,
   style, ...rest
 }) =>
 {
@@ -54,11 +55,11 @@ const Player = ({
       setTotalDuration(durationMillis);
     }
   }
+  const replayMusic = async () => { await music.replayAsync(); setPositionMillis(0); }
   const [paused, setPaused] = useState(false);
   const [music, setMusic] = useState(null);
   const [positionMillis, setPositionMillis] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
-  let iconType, handlePress;
   useEffect(() =>
   {
     const Timer = setTimeout(() => getTime(), 1000);
@@ -68,37 +69,32 @@ const Player = ({
 
 
   startMusic();
-  if ((positionMillis == totalDuration) && (music != null)) {
-    iconType = "replay";
-    handlePress = () => { music.replayAsync(); setPositionMillis(0) };
-
-  }
-  else {
-    iconType = paused == false ? "play-circle-filled" : "pause";
-    handlePress = pauseMusic;
-  }
+  const [iconType, handlePress] = (positionMillis == totalDuration) && (music != null) ?
+    ["replay", replayMusic] : [paused == false ? "play-arrow" : "pause", pauseMusic];
   return (
 
-    <View style={[style, playerStyles.container]} >
-      <View style={playerStyles.SeekBar}>
-        <Slider
-          thumbTintColor={colors.secondary}
-          minimumTrackTintColor={colors.fontColor}
-          maximumTrackTintColor={colors.borderColor}
-          value={positionMillis}
-          onSlidingComplete={async (pos) => await seekMusic(pos, false)}
-          maximumValue={totalDuration}
-          minimumValue={0}
-        />
-        <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
-      </View>
-
-      <View style={[style, playerStyles.subContainer]} {...rest} >
-        <Icon name="skip-previous" type="material-icon" onPress={() => seekMusic(-15)} size={size} color={controllerColors} />
-        <Icon name={iconType} type="material-icon" onPress={handlePress} size={size} color={controllerColors} />
-        <Icon name="skip-next" type="material-icon" onPress={() => seekMusic(15)} size={size} color={controllerColors} />
-      </View>
+    <View style={[style, playerStyles.container]} {...rest}>
+      <LinearGradient colors={[colors.caesarRadiantA, colors.caesarRadiantB]} style={playerStyles.gradientBackground}>
+        <View style={playerStyles.SeekBar}>
+          <Slider
+            thumbTintColor={colors.secondary}
+            minimumTrackTintColor={colors.fontColor}
+            maximumTrackTintColor={colors.borderColor}
+            value={positionMillis}
+            onSlidingComplete={async (pos) => await seekMusic(pos, false)}
+            maximumValue={totalDuration}
+            minimumValue={0}
+          />
+          <Text>  {playerTime(positionMillis) + " / " + playerTime(totalDuration)} </Text>
+        </View>
+        <View style={playerStyles.subContainer}  >
+          <LinearGradient colors={[colors.transparent, colors.gradientColor, colors.transparent]} style={playerStyles.gradientController}><Icon name="skip-previous" type="material-icon" onPress={() => seekMusic(-15)} size={size} color={controllerColors} iconStyle={playerStyles.iconStyles} /></LinearGradient>
+          <LinearGradient colors={[colors.transparent, colors.gradientColor, colors.transparent]} style={playerStyles.gradientController}><Icon name={iconType} type="material-icon" onPress={handlePress} size={size} color={controllerColors} iconStyle={playerStyles.iconStyles} /></LinearGradient>
+          <LinearGradient colors={[colors.transparent, colors.gradientColor, colors.transparent]} style={playerStyles.gradientController}><Icon name="skip-next" type="material-icon" onPress={() => seekMusic(15)} size={size} color={controllerColors} iconStyle={playerStyles.iconStyles} /></LinearGradient>
+        </View>
+      </LinearGradient>
     </View>
+
 
   );
 

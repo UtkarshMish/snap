@@ -10,21 +10,38 @@ export default playerStyles = StyleSheet.create({
   },
   subContainer: {
     width: "100%",
-    padding: 25,
+    padding: "3%",
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-evenly',
     alignContent: 'center',
-    backgroundColor: colors.switchTrue,
+    backgroundColor: 'transparent',
   },
   SeekBar: {
     padding: 10,
     width: "100%",
-    backgroundColor: colors.switchTrue,
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'stretch',
     alignSelf: 'center',
     alignContent: 'stretch',
 
+  },
+  gradientBackground: {
+    flex: 1,
+    opacity: 0.95,
+    borderRadius: 10,
+  },
+  gradientController: {
+    borderRadius: 50,
+    backgroundColor: "transparent",
+    borderWidth: 1,
+    borderColor: colors.backgroundDark,
+  },
+  iconStyles: {
+    padding: 10,
+    elevation: 150,
+    shadowColor: colors.backgroundDark,
+    shadowOpacity: 1,
   }
 })

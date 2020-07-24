@@ -17,5 +17,9 @@ export default {
   mediaColor: "#4D4",
   musicColor: "#F07",
   webSeriesColor: "#C68",
-  radioColor: "#A5C"
+  radioColor: "#A5C",
+  caesarRadiantA: '#F53844',
+  caesarRadiantB: '#42378F',
+  gradientColor: '#E99BA6',
+  transparent: 'transparent'
 }
