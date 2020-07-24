@@ -45,7 +45,7 @@ export default function App()
   }, [])
   return (
     <NavigationContainer documentTitle={{ enabled: false }} style={[styles.container, styles.bgColor]} >
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
 
       <StackNavigator />
     </NavigationContainer>

@@ -6,7 +6,7 @@ import UtilityButton from '../Components/Buttons';
 
 import Player from '../Components/Player';
 
-const bgImage = require('../../assets/bg-red-wall.jpg');
+const bgImage = require('../../assets/HomeScreen.jpg');
 
 export default function Viewer({
 	route: {
@@ -19,13 +19,7 @@ export default function Viewer({
 				<UtilityButton>next</UtilityButton>
 				<UtilityButton failButton={true}>previous</UtilityButton>
 			</View>
-			{URI && (
-				<Image
-					resizeMode='cover'
-					source={require('../../assets/HomeScreen.jpg')}
-					style={viewerStyles.backgroundImage}
-				/>
-			)}
+			{URI && <Image resizeMode='cover' source={bgImage} style={viewerStyles.backgroundImage} />}
 			{URI && <Player URI={URI} autoPlay={true} />}
 		</SafeAreaView>
 	);
