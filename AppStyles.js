@@ -17,7 +17,6 @@ export default styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   navStyles: {
-    borderRadius: 10,
     backgroundColor: colors.backgroundDark,
   }
 });
