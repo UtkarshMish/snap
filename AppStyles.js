@@ -10,6 +10,14 @@ export default styles = StyleSheet.create({
     fontFamily: "Noto",
   },
   bgColor: {
-    backgroundColor: colors.backgroundWhite,
+    backgroundColor: colors.backgroundDark,
   },
+  labelText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  navStyles: {
+    borderRadius: 10,
+    backgroundColor: colors.backgroundDark,
+  }
 });
