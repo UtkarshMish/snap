@@ -5,6 +5,7 @@ import selectorStyles from './selectorStyles';
 import Card from '../Components/Card';
 import colors from '../../config/colors';
 import { handleMedia, handleMusic } from '../Utilities/touchHandler';
+import routes from '../Components/Navigation/routes';
 
 export default function ContentSelector({ navigation }) {
 	const [resource, setResource] = useState(null);
@@ -51,8 +52,8 @@ export default function ContentSelector({ navigation }) {
 			</View>
 		</View>
 	);
-	async function handleMusicSelect(navigate) {
+	async function handleMusicSelect() {
 		const URI = await handleMusic();
-		if (URI) navigation.navigate('Viewer', { URI });
+		if (URI) navigation.navigate(routes.PLAYER, { URI });
 	}
 }

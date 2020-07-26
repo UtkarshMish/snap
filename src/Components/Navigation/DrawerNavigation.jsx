@@ -1,12 +1,13 @@
 import React from 'react';
 
 import Settings from '../../Settings';
-import StackNavigator from './StackNavigaor';
+import AppNavigator from './AppNavigaor';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Icon } from 'react-native-elements';
 import AppStyles from '../../../AppStyles';
 import colors from '../../../config/colors';
+import routes from './routes';
 const Drawer = createDrawerNavigator();
 
 const userScreenOptions = ({ route }) => ({
@@ -21,19 +22,20 @@ const userBarOptions = {
 };
 const DrawerNavigation = () => (
 	<Drawer.Navigator
-		initialRouteName='Home'
+		initialRouteName={routes.MEDIACHOOSER}
 		screenOptions={userScreenOptions}
 		drawerContentOptions={userBarOptions}
 	>
-		<Drawer.Screen name='Home' component={StackNavigator} />
-		<Drawer.Screen name='Settings' component={Settings} />
+		<Drawer.Screen name={routes.MEDIACHOOSER} component={AppNavigator} />
+		<Drawer.Screen name={routes.SETTINGS} component={Settings} />
 	</Drawer.Navigator>
 );
 
 function setIcon(route, focused, color, size) {
-	const iconName = route.name == 'Home' ? 'home' : focused ? 'ios-settings' : 'settings';
+	const iconName =
+		route.name == routes.MEDIACHOOSER ? 'home' : focused ? 'ios-settings' : 'settings';
 	const iconType =
-		route.name == 'Home'
+		route.name == routes.MEDIACHOOSER
 			? focused
 				? 'material-icon'
 				: 'feather'

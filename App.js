@@ -7,7 +7,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import * as requestPermissions from "expo-permissions";
 
 import styles from "./AppStyles";
-import DrawerNavigation from "./src/Components/Navigation/DrawerNavigation";
+import StartNavigator from "./src/Components/Navigation/StartNavigation";
 
 export default function App()
 {
@@ -18,7 +18,7 @@ export default function App()
   return (
     <NavigationContainer documentTitle={{ enabled: false }} style={[styles.container, styles.bgColor]} >
       <StatusBar style="light" />
-      <DrawerNavigation />
+      <StartNavigator />
     </NavigationContainer>
   );
 }

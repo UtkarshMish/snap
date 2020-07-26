@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView, BackHandler, Alert, ImageBackground } from 'r
 
 import screenStyles from './screenStyles';
 import UtilityButton from '../Components/Buttons';
+import routes from '../Components/Navigation/routes';
 const bgImage = require('../../assets/HomeScreen.gif');
 export default function StartScreen({ navigation }) {
 	return (
@@ -13,7 +14,7 @@ export default function StartScreen({ navigation }) {
 				<Text style={screenStyles.text}>An Entertainment Platform !</Text>
 			</View>
 			<View style={screenStyles.buttonContainer}>
-				<UtilityButton onPress={() => navigation.navigate('LogIn')}>Get Started</UtilityButton>
+				<UtilityButton onPress={() => navigation.navigate(routes.LOGIN)}>Get Started</UtilityButton>
 				<UtilityButton failButton={true} onPress={alertExit}>
 					Exit
 				</UtilityButton>

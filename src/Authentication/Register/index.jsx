@@ -6,6 +6,7 @@ import colors from '../../../config/colors';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import FormInput from '../../Components/Input';
+import routes from '../../Components/Navigation/routes';
 const validationSchema = Yup.object({
 	name: Yup.string().min(2).required().label('Name'),
 	phone: Yup.number().lessThan(9999999999).required().label('Mobile Number'),
@@ -20,7 +21,7 @@ const validationSchema = Yup.object({
 const Register = ({ navigation: { navigate } }) => {
 	const handleRegister = ({ name, phone, email, password, confirmPassword }) => {
 		Alert.alert('Success !', `Username: ${email} and Password: ${password}`, [{ text: 'Ok' }]);
-		navigate('ContentSelector');
+		navigate(routes.DRAWER);
 	};
 	return (
 		<View style={registerStyles.container}>

@@ -7,6 +7,7 @@ import colors from '../../../config/colors';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import FormInput from '../../Components/Input';
+import routes from '../../Components/Navigation/routes';
 
 const validationSchema = Yup.object({
 	username: Yup.string().required().email().max(100).label('Username'),
@@ -16,7 +17,7 @@ const validationSchema = Yup.object({
 const LogIn = ({ navigation: { navigate } }) => {
 	const handleLogin = ({ username, password }) => {
 		Alert.alert('Success !', `Username: ${username} and Password: ${password}`, [{ text: 'Ok' }]);
-		navigate('ContentSelector');
+		navigate(routes.DRAWER);
 	};
 	return (
 		<View style={loginStyles.container}>
@@ -63,7 +64,7 @@ const LogIn = ({ navigation: { navigate } }) => {
 							</View>
 							<View style={loginStyles.buttonContainer}>
 								<UtilityButton onPress={handleSubmit}>Login</UtilityButton>
-								<UtilityButton onPress={() => navigate('Register')} color={colors.switchTrue}>
+								<UtilityButton onPress={() => navigate(routes.REGISTER)} color={colors.switchTrue}>
 									Register
 								</UtilityButton>
 							</View>
